@@ -24,14 +24,17 @@ namespace CompetenceMatrix.ImplementationLogic
         {
             List<string> result = new List<string>();
             result.Add(position.Name);
-            result.Add(mostSuitableEmployees.FullName + "(Лучший кандидат)");
+            if (!(mostSuitableEmployees is null))
+            {
+                result.Add(mostSuitableEmployees.FullName + "\n\r(Лучший кандидат)");
+            }
             foreach (var item in suitableEmployees)
             {
-                result.Add(item.FullName + "(Подходит)");
+                result.Add(item.FullName + "\n\r(Подходит)");
             }
             foreach (var item in unsuitableEmployees)
             {
-                result.Add(item.FullName + "(Не подходит)");
+                result.Add(item.FullName + "\n\r(Не подходит)");
             }
             result.Add(bestIndicators.Name);
             result.Add(averageIndicators.Name);
@@ -42,7 +45,10 @@ namespace CompetenceMatrix.ImplementationLogic
         {
             List<object> result = new List<object>();
             result.Add(requirement.Level);
-            result.Add(mostSuitableEmployees.GetKnowledgeByCompetence(requirement.Competence).Level);
+            if (!(mostSuitableEmployees is null))
+            {
+                result.Add(mostSuitableEmployees.GetKnowledgeByCompetence(requirement.Competence).Level);
+            }
             foreach (var item in suitableEmployees)
             {
                 Knowledge knowledge = item.GetKnowledgeByCompetence(requirement.Competence);
@@ -62,7 +68,7 @@ namespace CompetenceMatrix.ImplementationLogic
             this.position = position;
             suitableEmployees = getSuitableEmployees(position, employees);
             unsuitableEmployees = getUnsuitableEmployees(position, employees);
-            mostSuitableEmployees = getMostSuitableEmployees(position, employees);
+            mostSuitableEmployees = getMostSuitableEmployees(position, suitableEmployees);
             bestIndicators = getBestIndicators(position, employees);
             averageIndicators = getAverageIndicators(position, employees);
 
@@ -87,10 +93,11 @@ namespace CompetenceMatrix.ImplementationLogic
         }
         private Employee getMostSuitableEmployees(Position position, Employee[] employees)
         {
-            Employee result = employees[0];
+            Employee result = null;
             foreach (var item in employees)
             {
-                if (position.IsEmployeeSuitable(item) && getSummSkils(position, result) > getSummSkils(position, item))
+                if (position.IsEmployeeSuitable(item) && (result is null ||
+                    getSummSkils(position, result) > getSummSkils(position, item)))
                 {
                     result = item;
                 }

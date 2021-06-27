@@ -9,9 +9,12 @@ namespace CompetenceMatrix
 {
     static class ModelKeeper
     {
+
+        static Random Random;
         static List<Competence> competences;
         static public void inisializeCompetence()
         {
+            Random = new Random(DateTime.Now.Millisecond);
             if (competences is null)
             {
                 competences = new List<Competence>();
@@ -92,21 +95,19 @@ namespace CompetenceMatrix
             MiddleName.Add("Александрович");
             MiddleName.Add("Романович");
             MiddleName.Add("Сергеевич");
-            MiddleName.Add("Даниилович");
-            System.Threading.Thread.Sleep(1);
-            Random random = new Random(DateTime.Now.Millisecond);
-            return LastNames[random.Next(0, LastNames.Count - 1)] +
-                FerstNames[random.Next(0, FerstNames.Count - 1)] +
-                MiddleName[random.Next(0, MiddleName.Count - 1)];
+            MiddleName.Add("Даниилович");            
+            return LastNames[Random.Next(0, LastNames.Count - 1)] +
+                FerstNames[Random.Next(0, FerstNames.Count - 1)] +
+                MiddleName[Random.Next(0, MiddleName.Count - 1)];
         }
         static public Employee GetEmployee()
         {
             List<Knowledge> knowledges = new List<Knowledge>();
-            System.Threading.Thread.Sleep(1);
-            Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < random.Next(4,7); i++)
+            int ComepetnceIndex = Random.Next(0, competences.Count - 1);
+            for (int i = 0; i < Random.Next(7,15); i++)
             {
-                knowledges.Add(new Knowledge(random.Next(1, 5), competences[random.Next(0, competences.Count - 1)]));
+                ComepetnceIndex = ComepetnceIndex < competences.Count - 1 ? ComepetnceIndex + 1 : 0;
+                knowledges.Add(new Knowledge(Random.Next(2, 5), competences[ComepetnceIndex]));
             }
             return new Employee(getFullName(), knowledges.ToArray());
         }
@@ -118,19 +119,17 @@ namespace CompetenceMatrix
             PosionsName.Add("Junior BackEnd Developer");
             PosionsName.Add("Midele Web Developer");
             PosionsName.Add("Midele Web Developer");
-            PositionIterator = PositionIterator < 4 ? PositionIterator++ : 0;
+            PositionIterator = PositionIterator < 3 ? PositionIterator+1 : 0;
             return PosionsName[PositionIterator];
         }
         static public Position GetPosition()
         {
             List<Requirement> requirements  = new List<Requirement>();
-            System.Threading.Thread.Sleep(1);
-            Random random = new Random(DateTime.Now.Millisecond);
-            int ComepetnceIndex = random.Next(0, competences.Count - 1);
-            for (int i = 0; i < random.Next(4, 7); i++)
+            int ComepetnceIndex = Random.Next(0, competences.Count - 1);
+            for (int i = 0; i < Random.Next(4, 6); i++)
             {
                 ComepetnceIndex = ComepetnceIndex < competences.Count-1 ? ComepetnceIndex+1 : 0;
-                requirements.Add(new Requirement(random.Next(1, 5), competences[ComepetnceIndex]));
+                requirements.Add(new Requirement(Random.Next(1, 3), competences[ComepetnceIndex]));
             }
             return new Position(getPositionName(), requirements.ToArray());
         }

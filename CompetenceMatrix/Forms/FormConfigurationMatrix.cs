@@ -131,14 +131,17 @@ namespace CompetenceMatrix.Forms
             MainForm fm = (MainForm)Application.OpenForms[0];
             fm.MatrixCompetence = new MatrixCompetence(SelectedPosition, SelectedEmployee);
             fm.Show();
-            fm.Close();
+            Close();
         }
 
         Employee GetEmployeeById(int Id)
         {
             foreach (var item in employees)
             {
-                return item;
+                if (item.Id == Id)
+                {
+                    return item;
+                }
             }
             throw new Exception($"Не найден сотрудник с ID = {Id}");
         }
@@ -146,18 +149,12 @@ namespace CompetenceMatrix.Forms
         {
             foreach (var item in positions)
             {
-                return item;
+                if (item.Id == Id)
+                {
+                    return item;
+                }
             }
             throw new Exception($"Не найдена должность с ID = {Id}");
-        }
-        int[] GetColectionPositionId(Position[] positions)
-        {
-            List<int> result = new List<int>();
-            foreach (var item in positions)
-            {
-                result.Add(item.Id);
-            }
-            return result.ToArray();
         }
     }
 }

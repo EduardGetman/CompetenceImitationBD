@@ -243,10 +243,11 @@ namespace CompetenceMatrix
             }
             Form form = new FormConfigurationMatrix(Positions.ToArray(),Employees.ToArray());            
             form.ShowDialog();
-            Hide();
+            SetMatrix();
         }
         private void SetMatrix()
         {
+            GridMatrixView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             GridMatrixView.Rows.Clear();
             GridMatrixView.Columns.Clear();
             for (int i = 0; i < MatrixCompetence.Heders.Length; i++)
