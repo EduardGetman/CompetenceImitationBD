@@ -96,10 +96,9 @@ namespace CompetenceMatrix
             MiddleName.Add("Романович ");
             MiddleName.Add("Сергеевич ");
             MiddleName.Add("Даниилович ");
-            Random random = new Random(DateTime.Now.Millisecond);
-            return LastNames[random.Next(0, LastNames.Count - 1)] +
-                FerstNames[random.Next(0, FerstNames.Count - 1)] +
-                MiddleName[random.Next(0, MiddleName.Count - 1)];
+            return LastNames[Random.Next(0, LastNames.Count - 1)] +
+                FerstNames[Random.Next(0, FerstNames.Count - 1)] +
+                MiddleName[Random.Next(0, MiddleName.Count - 1)];
         }
         static public Employee GetEmployee()
         {
