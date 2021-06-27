@@ -57,6 +57,9 @@ namespace CompetenceMatrix.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             Competence competence = new Competence(TBNameCpmpetence.Text);
+            
+            ModelKeeper.competences.Add(competence);
+            
             competences.Add(competence);
             CompetenceColumn.Items.Add(competence.Name);
         }
