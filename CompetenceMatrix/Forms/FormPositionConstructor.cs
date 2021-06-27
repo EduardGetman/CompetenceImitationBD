@@ -99,7 +99,7 @@ namespace CompetenceMatrix.Forms
         private Position AddPosition()
         {
             List<Requirement> requirements = new List<Requirement>();
-            for (int i = 0; i < GridCompetenceList.RowCount; i++)
+            for (int i = 0; i < Int32.Parse(NUDCountCompetence.Text); i++)
             {
                requirements.Add(new Requirement(Convert.ToInt32(GridCompetenceList[1, i].Value),
                    GetCompetenceByName(GridCompetenceList[0, i].Value.ToString())));
@@ -158,7 +158,7 @@ namespace CompetenceMatrix.Forms
 
         private bool AllCellsLevelColumnIsNumber()
         {            
-            for (int i = 0; i < GridCompetenceList.RowCount; i++)
+            for (int i = 0; i <Int32.Parse(NUDCountCompetence.Text); i++)
             {
                 if (!IsNumber(GridCompetenceList[1,i].Value.ToString()))
                 {

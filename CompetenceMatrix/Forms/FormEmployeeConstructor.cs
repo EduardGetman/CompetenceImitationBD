@@ -99,7 +99,7 @@ namespace CompetenceMatrix.Forms
         private Employee AddEmployee()
         {
             List<Knowledge> knowledges = new List<Knowledge>();
-            for (int i = 0; i < GridCompetenceList.RowCount; i++)
+            for (int i = 0; i < Int32.Parse(NUDCountCompetence.Text); i++)
             {
                knowledges.Add(new Knowledge(Convert.ToInt32(GridCompetenceList[1, i].Value),
                    GetCompetenceByName(GridCompetenceList[0, i].Value.ToString())));
@@ -152,7 +152,7 @@ namespace CompetenceMatrix.Forms
 
         private bool AllCellsLevelColumnIsNumber()
         {
-            for (int i = 0; i < GridCompetenceList.RowCount; i++)
+            for (int i = 0; i < Int32.Parse(NUDCountCompetence.Text); i++)
             {
                 if (!IsNumber(GridCompetenceList[1, i].Value.ToString()))
                 {
