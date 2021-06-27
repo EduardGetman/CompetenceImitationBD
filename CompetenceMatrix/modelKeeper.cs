@@ -96,7 +96,6 @@ namespace CompetenceMatrix
             MiddleName.Add("Романович ");
             MiddleName.Add("Сергеевич ");
             MiddleName.Add("Даниилович ");
-            System.Threading.Thread.Sleep(1);
             Random random = new Random(DateTime.Now.Millisecond);
             return LastNames[random.Next(0, LastNames.Count - 1)] +
                 FerstNames[random.Next(0, FerstNames.Count - 1)] +
