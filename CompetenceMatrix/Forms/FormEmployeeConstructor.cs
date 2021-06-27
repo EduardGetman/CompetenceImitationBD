@@ -30,15 +30,16 @@ namespace CompetenceMatrix.Forms
         }
         void SetEmployeToGridCompetenceList(Employee employee)
         {
-            TBNameCpmpetence.Text = employee.FullName;
+            TBNameModel.Text = employee.FullName;
+            NUDCountCompetence.Value = employee.Knowledges.Length;
             GridCompetenceList.Rows.Clear();
-
+           
+            ((DataGridViewComboBoxColumn) GridCompetenceList
+                    .Columns[0])
+                .Items.AddRange(ModelKeeper.competences);
             
             foreach (var item in employee.Knowledges)
             {
-                ((DataGridViewComboBoxColumn) GridCompetenceList
-                        .Columns[0])
-                    .Items.Add(item.Competence.Name);
                 GridCompetenceList.Rows.Add(item.Competence.Name, item.Level);
             }
         }

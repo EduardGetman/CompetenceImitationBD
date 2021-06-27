@@ -9,7 +9,7 @@ namespace CompetenceMatrix
 {
     static class ModelKeeper
     {
-        static List<Competence> competences;
+        public static List<Competence> competences;
         static public void inisializeCompetence()
         {
             if (competences is null)
