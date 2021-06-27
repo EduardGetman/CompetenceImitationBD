@@ -11,7 +11,7 @@ namespace CompetenceMatrix
     {
 
         static Random Random;
-        static List<Competence> competences;
+        public static List<Competence> competences;
         static public void inisializeCompetence()
         {
             Random = new Random(DateTime.Now.Millisecond);
@@ -43,62 +43,64 @@ namespace CompetenceMatrix
         static string getFullName()
         {
             List<string> LastNames = new List<string>();
-            LastNames.Add("Климов");
-            LastNames.Add("Воробьев");
-            LastNames.Add("Петров");
-            LastNames.Add("Ермаков");
-            LastNames.Add("Шевелев");
-            LastNames.Add("Иванов");
-            LastNames.Add("Соколов");
-            LastNames.Add("Горбачев");
-            LastNames.Add("Лебедев");
-            LastNames.Add("Гаврилов");
-            LastNames.Add("Нестеров");
-            LastNames.Add("Архипов");
-            LastNames.Add("Волков");
-            LastNames.Add("Измайлов");
-            LastNames.Add("Степанов");
-            LastNames.Add("Филимонов");
-            LastNames.Add("Соловьев");
-            LastNames.Add("Соколов");
-            LastNames.Add("Сазонов");
-            LastNames.Add("Краснов");
-            LastNames.Add("Иванов");
+            LastNames.Add("Климов ");
+            LastNames.Add("Воробьев ");
+            LastNames.Add("Петров ");
+            LastNames.Add("Ермаков ");
+            LastNames.Add("Шевелев ");
+            LastNames.Add("Иванов ");
+            LastNames.Add("Соколов ");
+            LastNames.Add("Горбачев ");
+            LastNames.Add("Лебедев ");
+            LastNames.Add("Гаврилов ");
+            LastNames.Add("Нестеров ");
+            LastNames.Add("Архипов ");
+            LastNames.Add("Волков ");
+            LastNames.Add("Измайлов ");
+            LastNames.Add("Степанов ");
+            LastNames.Add("Филимонов ");
+            LastNames.Add("Соловьев ");
+            LastNames.Add("Соколов ");
+            LastNames.Add("Сазонов ");
+            LastNames.Add("Краснов ");
+            LastNames.Add("Иванов ");
             List<string> FerstNames = new List<string>();
-            FerstNames.Add("Андрей");
-            FerstNames.Add("Иван");
-            FerstNames.Add("Роман");
-            FerstNames.Add("Дмитрий");
-            FerstNames.Add("Роман");
-            FerstNames.Add("Тимур");
-            FerstNames.Add("Максим");
-            FerstNames.Add("Леонид");
-            FerstNames.Add("Ярослав");
-            FerstNames.Add("Михаил");
-            FerstNames.Add("Роман");
-            FerstNames.Add("Илья");
-            FerstNames.Add("Дмитрий");
-            FerstNames.Add("Илья");
-            FerstNames.Add("Аркадий");
-            FerstNames.Add("Лев");
-            FerstNames.Add("Борис");
+            FerstNames.Add("Андрей ");
+            FerstNames.Add("Иван ");
+            FerstNames.Add("Роман ");
+            FerstNames.Add("Дмитрий ");
+            FerstNames.Add("Роман ");
+            FerstNames.Add("Тимур ");
+            FerstNames.Add("Максим ");
+            FerstNames.Add("Леонид ");
+            FerstNames.Add("Ярослав ");
+            FerstNames.Add("Михаил ");
+            FerstNames.Add("Роман ");
+            FerstNames.Add("Илья ");
+            FerstNames.Add("Дмитрий ");
+            FerstNames.Add("Илья ");
+            FerstNames.Add("Аркадий ");
+            FerstNames.Add("Лев ");
+            FerstNames.Add("Борис ");
             List<string> MiddleName = new List<string>();
-            MiddleName.Add("Иванович");
-            MiddleName.Add("Владиславович");
-            MiddleName.Add("Тимофеевич");
-            MiddleName.Add("Камильевич");
-            MiddleName.Add("Максимович");
-            MiddleName.Add("Александрович");
-            MiddleName.Add("Максимович");
-            MiddleName.Add("Михайлович");
-            MiddleName.Add("Вячеславович");
-            MiddleName.Add("Александрович");
-            MiddleName.Add("Романович");
-            MiddleName.Add("Сергеевич");
-            MiddleName.Add("Даниилович");            
-            return LastNames[Random.Next(0, LastNames.Count - 1)] +
-                FerstNames[Random.Next(0, FerstNames.Count - 1)] +
-                MiddleName[Random.Next(0, MiddleName.Count - 1)];
+            MiddleName.Add("Иванович ");
+            MiddleName.Add("Владиславович ");
+            MiddleName.Add("Тимофеевич ");
+            MiddleName.Add("Камильевич ");
+            MiddleName.Add("Максимович ");
+            MiddleName.Add("Александрович ");
+            MiddleName.Add("Максимович ");
+            MiddleName.Add("Михайлович ");
+            MiddleName.Add("Вячеславович ");
+            MiddleName.Add("Александрович ");
+            MiddleName.Add("Романович ");
+            MiddleName.Add("Сергеевич ");
+            MiddleName.Add("Даниилович ");
+            System.Threading.Thread.Sleep(1);
+            Random random = new Random(DateTime.Now.Millisecond);
+            return LastNames[random.Next(0, LastNames.Count - 1)] +
+                FerstNames[random.Next(0, FerstNames.Count - 1)] +
+                MiddleName[random.Next(0, MiddleName.Count - 1)];
         }
         static public Employee GetEmployee()
         {
