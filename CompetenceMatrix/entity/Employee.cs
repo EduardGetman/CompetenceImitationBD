@@ -67,7 +67,6 @@ namespace CompetenceMatrix.entity
             throw new NotImplementedException();
         }
         
-        //TODO добавить удаление. Требуется для главной формы
         public static bool DeleteEmployee(int id)
         {
             throw new NotImplementedException();
