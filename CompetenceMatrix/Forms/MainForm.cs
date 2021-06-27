@@ -63,7 +63,7 @@ namespace CompetenceMatrix
             Employees.Add(ModelKeeper.GetEmployee());
             Employees.Add(ModelKeeper.GetEmployee());
             Employees.Add(ModelKeeper.GetEmployee());
-
+//TODO генерируются одинаковые позиции
             Positions.Add(ModelKeeper.GetPosition());
             Positions.Add(ModelKeeper.GetPosition());
             Positions.Add(ModelKeeper.GetPosition());

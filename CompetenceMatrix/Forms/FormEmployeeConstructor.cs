@@ -19,7 +19,15 @@ namespace CompetenceMatrix.Forms
         public FormEmployeeConstructor(Competence[] competences)
         {
             this.competences = new List<Competence>();
-            InitializeComponent();
+            InitializeComponent();           
+            
+            foreach (var competence in ModelKeeper.competences)
+            {
+                ((DataGridViewComboBoxColumn) GridCompetenceList
+                        .Columns[0])
+                    .Items.AddRange(competence.Name);
+            }
+            
             this.competences.AddRange(competences);
             AddCompetencesToCompetenceColumn(competences);
         }
@@ -30,10 +38,12 @@ namespace CompetenceMatrix.Forms
         }
         void SetEmployeToGridCompetenceList(Employee employee)
         {
-            TBNameCpmpetence.Text = employee.FullName;
+            TBNameModel.Text = employee.FullName;
+            NUDCountCompetence.Value = employee.Knowledges.Length;
+            GridCompetenceList.Rows.Clear();
+
             foreach (var item in employee.Knowledges)
             {
-                GridCompetenceList.Rows.Clear();
                 GridCompetenceList.Rows.Add(item.Competence.Name, item.Level);
             }
         }
@@ -51,6 +61,9 @@ namespace CompetenceMatrix.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             Competence competence = new Competence(TBNameCpmpetence.Text);
+            
+            ModelKeeper.competences.Add(competence);
+            
             competences.Add(competence);
             CompetenceColumn.Items.Add(competence.Name);
         }
@@ -99,7 +112,7 @@ namespace CompetenceMatrix.Forms
         private Employee AddEmployee()
         {
             List<Knowledge> knowledges = new List<Knowledge>();
-            for (int i = 0; i < GridCompetenceList.RowCount; i++)
+            for (int i = 0; i < Int32.Parse(NUDCountCompetence.Text); i++)
             {
                knowledges.Add(new Knowledge(Convert.ToInt32(GridCompetenceList[1, i].Value),
                    GetCompetenceByName(GridCompetenceList[0, i].Value.ToString())));
@@ -152,7 +165,7 @@ namespace CompetenceMatrix.Forms
 
         private bool AllCellsLevelColumnIsNumber()
         {
-            for (int i = 0; i < GridCompetenceList.RowCount; i++)
+            for (int i = 0; i < Int32.Parse(NUDCountCompetence.Text); i++)
             {
                 if (!IsNumber(GridCompetenceList[1, i].Value.ToString()))
                 {
