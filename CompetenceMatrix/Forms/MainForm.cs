@@ -63,7 +63,6 @@ namespace CompetenceMatrix
             Employees.Add(ModelKeeper.GetEmployee());
             Employees.Add(ModelKeeper.GetEmployee());
             Employees.Add(ModelKeeper.GetEmployee());
-//TODO генерируются одинаковые позиции
             Positions.Add(ModelKeeper.GetPosition());
             Positions.Add(ModelKeeper.GetPosition());
             Positions.Add(ModelKeeper.GetPosition());
@@ -200,6 +199,7 @@ namespace CompetenceMatrix
         }
         private void SetModelToGridMatrixView(Position position)
         {
+            GridMatrixView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DataTable table = ConstructDataTableByModel();
             foreach (var item in position.Requirements)
             {
@@ -244,10 +244,11 @@ namespace CompetenceMatrix
             Form form = new FormConfigurationMatrix(Positions.ToArray(),Employees.ToArray());            
             form.ShowDialog();
             SetMatrix();
+            SetSizeGridMatrixView(100);
         }
         private void SetMatrix()
         {
-            GridMatrixView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            GridMatrixView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             GridMatrixView.Rows.Clear();
             GridMatrixView.Columns.Clear();
             for (int i = 0; i < MatrixCompetence.Heders.Length; i++)
@@ -257,6 +258,14 @@ namespace CompetenceMatrix
             foreach (var item in MatrixCompetence.Cells)
             {
                 GridMatrixView.Rows.Add(item);
+            }
+        }
+
+        private void SetSizeGridMatrixView(int size)
+        {
+            for (int i = 0; i < GridMatrixView.Columns.Count; i++)
+            {
+                GridMatrixView.Columns[i].Width = size;
             }
         }
     }

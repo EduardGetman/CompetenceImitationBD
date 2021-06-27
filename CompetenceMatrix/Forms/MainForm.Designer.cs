@@ -56,6 +56,7 @@ namespace CompetenceMatrix
             this.GridModelList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.GridModelList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridModelList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.GridModelList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridModelList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ModelName});
@@ -206,6 +207,7 @@ namespace CompetenceMatrix
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridMatrixView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridMatrixView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.GridMatrixView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridMatrixView.Location = new System.Drawing.Point(594, 12);
             this.GridMatrixView.Name = "GridMatrixView";

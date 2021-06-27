@@ -97,25 +97,12 @@ namespace CompetenceMatrix.Forms
             return dialogResult == DialogResult.Yes;
         }
 
-        Position[] GetPositionsByFilter(string filterString, Position[] positions)
-        {
-            List<Position> result = new List<Position>();
-            foreach (var item in positions)
-            {
-                if (item.Name.Contains(filterString))
-                {
-                    result.Add(item);
-                }
-            }
-            return result.ToArray();
-        }
-
         void SetGridEmployeeSelect(Employee[] employees)
         {
             GridEmployeeSelect.Rows.Clear();
             foreach (var item in employees)
             {
-               GridEmployeeSelect.Rows.Add(item.FullName, item.PositionName(), false, item.Id);
+               GridEmployeeSelect.Rows.Add(item.FullName, item.PositionName(), true, item.Id);
             }
         }
 

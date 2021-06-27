@@ -59,6 +59,7 @@ namespace CompetenceMatrix.Forms
             this.GridEmployeeSelect.AllowUserToAddRows = false;
             this.GridEmployeeSelect.AllowUserToDeleteRows = false;
             this.GridEmployeeSelect.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridEmployeeSelect.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.GridEmployeeSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridEmployeeSelect.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmployeeName,

@@ -58,6 +58,7 @@ namespace CompetenceMatrix.Forms
             // GridCompetenceList
             // 
             this.GridCompetenceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridCompetenceList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.GridCompetenceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridCompetenceList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CompetenceColumn,

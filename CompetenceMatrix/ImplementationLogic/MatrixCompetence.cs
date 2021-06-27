@@ -26,15 +26,15 @@ namespace CompetenceMatrix.ImplementationLogic
             result.Add(position.Name);
             if (!(mostSuitableEmployees is null))
             {
-                result.Add(mostSuitableEmployees.FullName + "\n\r(Лучший кандидат)");
+                result.Add(mostSuitableEmployees.FullName + "(Лучший кандидат)");
             }
             foreach (var item in suitableEmployees)
             {
-                result.Add(item.FullName + "\n\r(Подходит)");
+                result.Add(item.FullName + "(Подходит)");
             }
             foreach (var item in unsuitableEmployees)
             {
-                result.Add(item.FullName + "\n\r(Не подходит)");
+                result.Add(item.FullName + "(Не подходит)");
             }
             result.Add(bestIndicators.Name);
             result.Add(averageIndicators.Name);
@@ -165,14 +165,15 @@ namespace CompetenceMatrix.ImplementationLogic
         }
         private int getAverageIndicatorByCompetence(Employee[] employee, Competence competence)
         {
+            if (employee.Length == 0)
+            {
+                return 0;
+            }
             int result = 0;
             foreach (var item in employee)
             {
                 Knowledge knowledge = item.GetKnowledgeByCompetence(competence);
-                if (!(knowledge is null) && result < knowledge.Level)
-                {
-                    result += (knowledge is null) ?  0: knowledge.Level;
-                }
+                result += (knowledge is null) ?  0: knowledge.Level;
             }
             return result/employee.Length;
         }
