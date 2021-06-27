@@ -19,7 +19,10 @@ namespace CompetenceMatrix.Forms
         public FormEmployeeConstructor(Competence[] competences)
         {
             this.competences = new List<Competence>();
-            InitializeComponent();
+            InitializeComponent();           
+            ((DataGridViewComboBoxColumn) GridCompetenceList
+                    .Columns[0])
+                .Items.AddRange(ModelKeeper.competences);
             this.competences.AddRange(competences);
             AddCompetencesToCompetenceColumn(competences);
         }
@@ -33,11 +36,7 @@ namespace CompetenceMatrix.Forms
             TBNameModel.Text = employee.FullName;
             NUDCountCompetence.Value = employee.Knowledges.Length;
             GridCompetenceList.Rows.Clear();
-           
-            ((DataGridViewComboBoxColumn) GridCompetenceList
-                    .Columns[0])
-                .Items.AddRange(ModelKeeper.competences);
-            
+
             foreach (var item in employee.Knowledges)
             {
                 GridCompetenceList.Rows.Add(item.Competence.Name, item.Level);

@@ -20,6 +20,10 @@ namespace CompetenceMatrix.Forms
         {
             this.competences = new List<Competence>();
             InitializeComponent();
+            
+            ((DataGridViewComboBoxColumn) GridCompetenceList
+                    .Columns[0])
+                .Items.AddRange(ModelKeeper.competences);
             this.competences.AddRange(competences);
             AddCompetencesToCompetenceColumn(competences);
         }
@@ -33,10 +37,6 @@ namespace CompetenceMatrix.Forms
             TBNameModel.Text = position.Name;
             NUDCountCompetence.Value = position.Requirements.Count;
             GridCompetenceList.Rows.Clear();
-            
-            ((DataGridViewComboBoxColumn) GridCompetenceList
-                    .Columns[0])
-                .Items.AddRange(ModelKeeper.competences);
             
             foreach (var item in position.Requirements)
             {
