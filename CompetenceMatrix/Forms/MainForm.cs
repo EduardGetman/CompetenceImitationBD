@@ -85,7 +85,7 @@ namespace CompetenceMatrix
                 return;
             }
             GridModelList.Rows.Clear();
-            foreach (var item in Employees)
+            foreach (var item in this.Employees)
             {
                 GridModelList.Rows.Add(item.FullName);
             }
@@ -132,19 +132,35 @@ namespace CompetenceMatrix
             {
                 return;
             }
+
             if (EmployeesSeleted is null || GridModelList.SelectedCells is null)
             {
                 MessageBox.Show("Выберите должность или сотрудника прежде чем удлить её",
                     "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             if (EmployeesSeleted == true)
             {
-                Employee.DeleteEmployee(SelecetedEmployee.Id);
+                foreach (var item in this.Employees)
+                {
+                    if (item.FullName == SelecetedEmployee.FullName)
+                    {
+                        this.Employees.Remove(item);
+                        break;
+                    }
+                }
             }
             else
             {
-                Employee.DeleteEmployee(SelecetedPosition.Id);
+                foreach (var item in this.Positions)
+                {
+                    if (item.Name == SelecetedPosition.Name)
+                    {
+                        this.Positions.Remove(item);
+                        break;
+                    }
+                }
             }
         }
 

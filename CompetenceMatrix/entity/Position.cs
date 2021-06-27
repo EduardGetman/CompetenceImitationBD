@@ -45,7 +45,6 @@ namespace CompetenceMatrix.entity
         //Создаёт новый окземпляр должности и возвращает его. Добавляет новоую должность в базу данных
         //Не уверен что в возвращаемом объекте будут инициализированы все поля, например id
         
-        //TODO
         public static Position UpdatePosition(string name, Requirement[] knowledges)
         {
             throw new NotImplementedException();
