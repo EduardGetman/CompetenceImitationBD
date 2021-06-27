@@ -31,9 +31,14 @@ namespace CompetenceMatrix.Forms
         void SetEmployeToGridCompetenceList(Employee employee)
         {
             TBNameCpmpetence.Text = employee.FullName;
+            GridCompetenceList.Rows.Clear();
+
+            
             foreach (var item in employee.Knowledges)
             {
-                GridCompetenceList.Rows.Clear();
+                ((DataGridViewComboBoxColumn) GridCompetenceList
+                        .Columns[0])
+                    .Items.Add(item.Competence.Name);
                 GridCompetenceList.Rows.Add(item.Competence.Name, item.Level);
             }
         }
