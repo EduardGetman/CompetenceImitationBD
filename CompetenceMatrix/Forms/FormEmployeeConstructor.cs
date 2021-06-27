@@ -122,7 +122,14 @@ namespace CompetenceMatrix.Forms
         }
         private Employee UpdateEmployee()
         {
-            throw new NotImplementedException();
+            List<Knowledge> knowledges = new List<Knowledge>();
+            for (int i = 0; i < Int32.Parse(NUDCountCompetence.Text); i++)
+            {
+                knowledges.Add(new Knowledge(Convert.ToInt32(GridCompetenceList[1, i].Value),
+                    GetCompetenceByName(GridCompetenceList[0, i].Value.ToString())));
+            }
+            Employee employee = new Employee(TBNameModel.Text, knowledges.ToArray());
+            return employee;
         }
         private Competence GetCompetenceByName(string name)
         {

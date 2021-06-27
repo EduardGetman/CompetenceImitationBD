@@ -67,6 +67,7 @@ namespace CompetenceMatrix
             Positions.Add(ModelKeeper.GetPosition());
             Positions.Add(ModelKeeper.GetPosition());
             Positions.Add(ModelKeeper.GetPosition());
+            competences.AddRange(ModelKeeper.competences);
         }
         public MainForm()
         {
@@ -206,6 +207,14 @@ namespace CompetenceMatrix
 
         private void SetModelToGridMatrixView(Employee employee)
         {
+            if (GridMatrixView.Columns.Count>0)
+            {
+                GridMatrixView.Columns.Clear();
+            }
+            if (GridMatrixView.Rows.Count > 0)
+            {
+                GridMatrixView.Rows.Clear();
+            }
             DataTable table = ConstructDataTableByModel();
             foreach (var item in employee.Knowledges)
             {
@@ -259,12 +268,17 @@ namespace CompetenceMatrix
             }
             Form form = new FormConfigurationMatrix(Positions.ToArray(),Employees.ToArray());            
             form.ShowDialog();
+            if (MatrixCompetence is null)
+            {
+                return;
+            }
             SetMatrix();
             SetSizeGridMatrixView(100);
         }
         private void SetMatrix()
         {
             GridMatrixView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            GridMatrixView.DataSource = null;
             GridMatrixView.Rows.Clear();
             GridMatrixView.Columns.Clear();
             for (int i = 0; i < MatrixCompetence.Heders.Length; i++)

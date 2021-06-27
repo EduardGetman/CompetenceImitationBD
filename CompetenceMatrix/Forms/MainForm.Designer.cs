@@ -214,14 +214,14 @@ namespace CompetenceMatrix
             this.GridMatrixView.ReadOnly = true;
             this.GridMatrixView.RowHeadersWidth = 51;
             this.GridMatrixView.RowTemplate.Height = 24;
-            this.GridMatrixView.Size = new System.Drawing.Size(623, 594);
+            this.GridMatrixView.Size = new System.Drawing.Size(882, 594);
             this.GridMatrixView.TabIndex = 12;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 618);
+            this.ClientSize = new System.Drawing.Size(1488, 618);
             this.Controls.Add(this.GridMatrixView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);

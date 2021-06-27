@@ -122,7 +122,14 @@ namespace CompetenceMatrix.Forms
         }
         private Position UpdatePosition()
         {
-            throw new NotImplementedException();
+            List<Requirement> requirements = new List<Requirement>();
+            for (int i = 0; i < Int32.Parse(NUDCountCompetence.Text); i++)
+            {
+                requirements.Add(new Requirement(Convert.ToInt32(GridCompetenceList[1, i].Value),
+                    GetCompetenceByName(GridCompetenceList[0, i].Value.ToString())));
+            }
+            Position position = new Position(TBNameModel.Text, requirements.ToArray());
+            return position;
         }
 
         private Competence GetCompetenceByName(string name)
