@@ -20,10 +20,14 @@ namespace CompetenceMatrix.Forms
         {
             this.competences = new List<Competence>();
             InitializeComponent();
+
+            foreach (var competence in ModelKeeper.competences)
+            {
+                ((DataGridViewComboBoxColumn) GridCompetenceList
+                        .Columns[0])
+                    .Items.AddRange(competence.Name);
+            }
             
-            ((DataGridViewComboBoxColumn) GridCompetenceList
-                    .Columns[0])
-                .Items.AddRange(ModelKeeper.competences);
             this.competences.AddRange(competences);
             AddCompetencesToCompetenceColumn(competences);
         }
