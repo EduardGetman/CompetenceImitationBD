@@ -116,9 +116,9 @@ namespace CompetenceMatrix
         {
             List<string> PosionsName = new List<string>();
             PosionsName.Add("Junior .Net Developer");
-            PosionsName.Add("Junior BackEnd Developer");
-            PosionsName.Add("Midele Web Developer");
-            PosionsName.Add("Midele Web Developer");
+            PosionsName.Add("Junior Java Developer");
+            PosionsName.Add("Middle .Net Developer");
+            PosionsName.Add("Middle Java Developer");
             PositionIterator = PositionIterator < 3 ? PositionIterator+1 : 0;
             return PosionsName[PositionIterator];
         }
